@@ -2,7 +2,7 @@ const express = require ('express');
 const {Server} = requiere ('socket.io');
 const app = express();
 const handlebars = require ('express-handlebars');
-const routerViews = require ('./views')
+const routerViews = require ('./routes/views.route')
 
 const httpServer = app.listen(8080, ()=>{
     console.log('el servidor esta corriendo en el puerto 8080')
@@ -12,6 +12,7 @@ const io = new Server (httpServer);
 io.on('conection',socket =>{
     console.log ('nuevo usuario conectado')
 });
+
 
 
 const server = express();
