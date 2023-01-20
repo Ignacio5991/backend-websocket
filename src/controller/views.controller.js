@@ -29,7 +29,6 @@ const addrealtime = async (req,res)=>{
     if(products.error){
         res.json(products)
     }else{
-        console.log(products)
         emitaddproduct(products)
         res.json(products)
     }

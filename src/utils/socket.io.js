@@ -17,7 +17,6 @@ const emitdeleteproduct = (id)=>{
 }
 
 const emitaddproduct = (products)=>{
-    console.log(products)
     io.emit("add-products",{products})
 }
 

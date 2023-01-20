@@ -1,10 +1,8 @@
 <div>Estos son nuestros Productos</div>
 {{#each products}}
 
-<div>
-    <h1>{{this.id}} {{this.title}}</h1>
-</div>
-
-
+  <div>
+    <h4>{{this.id}} {{this.title}} {{this.description}} {{this.code}} {{this.price}} {{this.status}} {{this.stock}} {{this.category}} {{this.thumbnail}}</h4>
+  </div>
 
 {{/each}}
