@@ -30,16 +30,6 @@ const addProductCart = async (req, res) => {
   }
   
 };
-//   if (products.error) {
-//     res.json(products.status).send(products);
-//   } else {
-//     const respu = await cart.addProductCart(cid, products.id);
-//     if (respu.error) {
-//       res.json(respu.status).send(respu);
-//     } else {
-//       res.json({ msg: 'Producto agregado con exito' });
-//     }
-//   }
 
 module.exports = {
   createcart,

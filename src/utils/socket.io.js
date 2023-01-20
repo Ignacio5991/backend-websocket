@@ -13,10 +13,16 @@ const connectionSocket = (httpServer)=>{
 }
 
 const emitdeleteproduct = (id)=>{
-    io.emit("delete-products",id)
+    io.emit("delete-products",{id})
+}
+
+const emitaddproduct = (products)=>{
+    console.log(products)
+    io.emit("add-products",{products})
 }
 
 module.exports = {
     connectionSocket,
-    emitdeleteproduct
+    emitdeleteproduct,
+    emitaddproduct
 }

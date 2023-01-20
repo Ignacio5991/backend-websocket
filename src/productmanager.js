@@ -29,7 +29,7 @@ class ProductManager {
 			console.log("Archivo creado con éxito!");
 		}
 	};
-  async addProduct(objeto) {
+   addProduct = async (objeto) => {
     if(objeto.title ||
        objeto.description ||
        objeto.code ||
@@ -45,10 +45,10 @@ class ProductManager {
            ...objeto
          })
          await writeFile(this.path,this.product)
-         return("El producto fue agregado de forma exitosa");
+         return{msg:"El producto fue agregado de forma exitosa"};
        }
        else{
-        return{status:400,error:"Faltan campos obligatorios"}
+        return{msg:"Faltan campos obligatorios"}
        }
   }
   
@@ -97,9 +97,9 @@ class ProductManager {
     if (productDelete !== -1){
       const nuevoArray = this.products.filter((productos)=>productos.id !== id);
       await writeFile (this.path,nuevoArray);
-      return ("El producto se elimino correctamente")
+      return {msg:"El producto se elimino correctamente"}
     }else{
-      return{status:400,error:"El producto eliminado no se encunetra"}
+      return{msg:"El producto eliminado no se encunetra"}
     }
   }
 }
