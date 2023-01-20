@@ -1,52 +1,49 @@
 const express = require ('express');
-const {Server} = require ('socket.io');
 const app = express();
+const {Server} = require('socket.io');
 const handlebars = require ('express-handlebars');
-const routerViews = require ('./routes/views.route')
+const viewsroute = require  ('./routes/views.route')
+const productsroute = require ('./routes/products.route')
+const cartsroute = require ('./routes/cart.route')
+const {connectionSocket} = require ('./utils/socket.io')
+const server = express();
 
 const httpServer = app.listen(8080, ()=>{
     console.log('el servidor esta corriendo en el puerto 8080')
 })
-const io = new Server (httpServer);
 
-io.on('conection',socket =>{
-    console.log ('nuevo usuario conectado')
-});
+// Handlebars 
 
+server.engine('handlebars', handlebars.engine());
+server.set('views', __dirname + '/views');
+server.set('view engine', 'handlebars');
 
+//Express
 
-// const server = express();
-// const productsroute = require ('./routes/products.route')
-// const cartsroute = require ('./routes/cart.route')
-// server.use(express.urlencoded({extended:true}))
-// server.use(express.json())
+server.use(express.static(__dirname+'/public'));
+server.use(express.json())
+server.use(express.urlencoded({extended:true}))
 
-// server.use('/api/products/', productsroute);
-// server.use('/api/products/',productsroute);
-// server.use('/api/products/',productsroute);
-// server.use('/api/products/',productsroute);
-// server.use('/api/products/',productsroute);
+//Rutas 
+server.use('/api/products/',productsroute);
 
+//Rutas del cart
+server.use('/api/carts/',cartsroute);
 
-// //Rutas del cart
-
-// server.use('/api/carts/',cartsroute);
-// server.use('/api/carts/',cartsroute);
-// server.use('/api/carts/',cartsroute);
-
-// server.listen(8080,()=>{
-//     console.log("Servidor Escuchando en el puerto 8080")
-// })
+// Rutas del views
+server.use('/',viewsroute)
 
 //handlebar
 app.engine ('handlebars', handlebars.engine());
+
 
 app.set('views',__dirname +'/views');
 app.set('view engine', 'handlebars');
 
 app.use(express.static(__dirname +'/public'));
 
-app.use('/',routerViews);
+app.use('/',viewsroute);
 
 
 
+connectionSocket(httpServer);
