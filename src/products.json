@@ -65,6 +65,28 @@
       "stock": "200",
       "category": "Vinos",
       "thumbnail": ["https://unvinoahora.com.ar/wp-content/uploads/2020/06/MOM005a.jpg"]
+    },
+    {
+      "id": 6,
+      "title": "Gin bombay",
+      "description": "Gin seco para gente del gusto",
+      "code": "GB5",
+      "price": "1200",
+      "status": "true",
+      "stock": "50",
+      "category": "Gins",
+      "thumbnail": ["https://cheersapp.com.ar/images/hero-images/BombaySapphireConSampling.jpg"]
+    },
+    {
+      "id": 7,
+      "title": "Gin Aconcagua",
+      "description": "Gin 100% Argentino eleaborado con agua del cerro Aconcagua",
+      "code": "GA65",
+      "price": "2200",
+      "status": "true",
+      "stock": "60",
+      "category": "Gins",
+      "thumbnail": ["https://http2.mlstatic.com/D_NQ_NP_954418-MLA46145469578_052021-O.jpg"]
     }
   ]
 }
