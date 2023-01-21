@@ -4,9 +4,9 @@ socket.on('init-products', (products) => {
   main.innerHTML = ' ';
   products.forEach((product) => {
     main.innerHTML +=  `<div class="card col-3 m-2 border border-4 id="${product.id}">
-    <img src="" class="card-img-top" alt="">
      <div class="card-body">
        <h5 class="card-title text-center">${product.title}</h5>
+       <img src="${product.thumbnail}" class="card-img-top">
        <p class="card-text text-center">${product.description}</p>
        <h3 class="card-text text-center ">$ ${product.price}</h3>
        <p class="card-text text-center ">cantidad: ${product.stock}</p>
@@ -29,6 +29,7 @@ socket.on('add-products',(products)=>{
     <img src="" class="card-img-top" alt="">
      <div class="card-body">
        <h5 class="card-title text-center">${products.title}</h5>
+       <img src="${products.thumbnail}" class="card-img-top">
        <p class="card-text text-center">${products.description}</p>
        <h3 class="card-text text-center ">$ ${products.price}</h3>
        <p class="card-text text-center ">cantidad: ${products.stock}</p>

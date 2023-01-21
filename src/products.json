@@ -9,7 +9,7 @@
       "status": true,
       "stock": "10",
       "category": "wisky",
-      "thumbnail": ["Enlase prueba 0"]
+      "thumbnail": ["https://d2r9epyceweg5n.cloudfront.net/stores/001/152/625/products/j-walker-blue1-e86b869f1eeeeed48b15882571117532-1024-1024.jpg"]
     },
     {
       "id": 1,
@@ -20,7 +20,7 @@
       "status": true,
       "stock": "15",
       "category": "wisky",
-      "thumbnail": ["Enlase prueba 1"]
+      "thumbnail": ["https://http2.mlstatic.com/D_NQ_NP_978295-MLA48012569919_102021-O.webp"]
     },
     {
       "id": 2,
@@ -31,7 +31,7 @@
       "status": true,
       "stock": "20",
       "category": "wisky",
-      "thumbnail": ["Enlase actualizado 2"]
+      "thumbnail": ["https://http2.mlstatic.com/D_NQ_NP_728015-MLA49924274697_052022-O.webp"]
     },
     {
       "id": 3,
@@ -42,7 +42,7 @@
       "status": "true",
       "stock": "100",
       "category": "Vinos",
-      "thumbnail": ["Enlase prueba 405"]
+      "thumbnail": ["https://luigiboscaar.vteximg.com.br/arquivos/ids/157048-650-650/LB_Malbec_2020_GENERAL_1.png?v=637892902985700000"]
     },
     {
       "id": 4,
@@ -53,7 +53,7 @@
       "status": "true",
       "stock": "150",
       "category": "Vinos",
-      "thumbnail": ["Enlase prueba 406"]
+      "thumbnail": ["https://www.espaciovino.com.ar/media/default/0001/62/thumb_61963_default_big.jpeg"]
     },
     {
       "id": 5,
@@ -64,7 +64,7 @@
       "status": "true",
       "stock": "200",
       "category": "Vinos",
-      "thumbnail": ["Enlase prueba 407"]
+      "thumbnail": ["https://unvinoahora.com.ar/wp-content/uploads/2020/06/MOM005a.jpg"]
     }
   ]
 }
