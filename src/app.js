@@ -11,6 +11,18 @@ const httpServer = server.listen(8080, ()=>{
     console.log('el servidor esta corriendo en el puerto 8080')
 })
 
+mongoose.connect(
+    "mongodb+srv://Ignacio:<hjZ15KFFMFdCu44S>@admin.mtszt8r.mongodb.net/?retryWrites=true&w=majority",
+    (error)=>{
+        if (error){
+            console.log('Error de conexion', error);
+            process.exit();
+        }else{
+            console.log('El servidor esta corriendo en el puerto 8080')
+        }
+    }
+)
+
 // Handlebars 
 
 server.engine('handlebars', handlebars.engine());
