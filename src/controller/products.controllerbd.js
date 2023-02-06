@@ -6,7 +6,7 @@ const getProduct = async (req, res) => {
   try {
     if (!limits){
     let product = await productsModel.find()
-    console.log(product);
+    res.render('home',{product})
     return res.json({
       msg: 'ok',
       playload: product,

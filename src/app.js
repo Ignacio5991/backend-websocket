@@ -7,12 +7,35 @@ const cartsroute = require ('./routes/cart.route')
 const {connectionSocket} = require ('./utils/socket.io');
 const productsrouter = require('./routes/products.route');
 const  {default:mongoose}  = require('mongoose');
+const router = require('./routes/viewsroute');
 const server = express();
 mongoose.set("strictQuery",false)
 
- server.listen(8080, ()=>{
+const httpServer = server.listen(8080, ()=>{
     console.log('el servidor esta corriendo en el puerto 8080')
 })
+
+const io = new Server(httpServer);
+const msgs= [];
+
+io.on('connection', (socket) => {
+    socket.on('new-user', (data) => {
+        socket.broadcast.emit('new-user', {user: data.user});
+    });
+    console.log('nuevo usuario conectado');
+    socket.broadcast.emit('new-user', {
+        user: 'Gonzalo',
+    })
+    socket.emit('history', msgs);
+    socket.on('message', (data) => {
+    //   console.log(data);
+      msgs.push(data);
+      io.emit('message', data);
+    });
+});
+
+//Conexion a mongoose data base
+
 
 mongoose.connect(
     'mongodb+srv://Ignacio:4wmZz9ezRRKqgu85@admin.mtszt8r.mongodb.net/?retryWrites=true&w=majority',
@@ -48,5 +71,5 @@ server.use('/api/carts/',cartsroute);
 // Rutas del views
 server.use('/api/productsbd',productsRouteBD)
 
-
+server.use ('/', router);
 
