@@ -23,6 +23,8 @@ Swal.fire({
             text: `${data.user} se ha conectado`,
             toast: true,
             position: 'top-right',  
+            timer: 3000,
+            showConfirmButton: false,
         });
     });
     socket.emit('new-user', {user:result.value});
@@ -44,14 +46,14 @@ chatBox.addEventListener('keyup', (e) => {
 
 socket.on('message', (data) => {
     let history = document.getElementById('history');
-    history.innerHTML += `<div style="display:flex; justify-content:${data.user == user ? 'end' : 'start'}"><p style="background-color:#dcf8c6;width: fit-content;padding: 10px;border-radius: 5px;">${data.user}: ${data.message}</p></div>`;
+    history.innerHTML += `<div style="display:flex; justify-content:${data.user == user ? 'start' : 'end'}"><p style="background-color:#dcf8c6;width: fit-content;padding: 10px;border-radius: 5px;">${data.user}: ${data.message}</p></div>`;
     // history.innerHTML += `<div class="${data.user == user ? "message-me" : ""}"><p><strong>${data.user}:</strong>${data.message}</p></div>`;
 });
 
 socket.on ('history',(data) => {
     let history = document.getElementById('history');
     data.forEach((item) => {
-        history.innerHTML += `<div style="display:flex; justify-content:${item.user == user ? 'end' : 'start'}"><p style="background-color:#dcf8c6;">${item.user}: ${item.message}</p></div>`;
+        history.innerHTML += `<div style="display:flex; justify-content:${item.user == user ? 'start' : 'end'}"><p style="background-color:#dcf8c6;">${item.user}: ${item.message}</p></div>`;
         // history.innerHTML += `<div class=${item.user == user ? "message-me" : ""}><p><strong>${item.user}:</strong>${item.message}</p></div>`;
     });
 });

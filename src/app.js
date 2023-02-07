@@ -36,9 +36,8 @@ io.on('connection', (socket) => {
 
 //Conexion a mongoose data base
 
-
 mongoose.connect(
-    'mongodb+srv://Ignacio:4wmZz9ezRRKqgu85@admin.mtszt8r.mongodb.net/?retryWrites=true&w=majority',
+    'mongodb+srv://Ignacio:4wmZz9ezRRKqgu85@admin.mtszt8r.mongodb.net/test',
     (error)=>{
         if (error){
             console.log('Error de conexion', error);
@@ -48,6 +47,22 @@ mongoose.connect(
         }
     }
 )
+
+//Conexion a mongoose chat database
+
+// mongoose.connect(
+//     'mongodb+srv://Ignacio:4wmZz9ezRRKqgu85@admin.mtszt8r.mongodb.net/chat',
+//     (error)=>{
+//         if (error){
+//             console.log('Error de conexion', error);
+//             process.exit();
+//         }else{
+//             console.log('Conectado a mongo')
+//         }
+//     }
+// )
+
+
 
 // Handlebars 
 
@@ -71,5 +86,6 @@ server.use('/api/carts/',cartsroute);
 // Rutas del views
 server.use('/api/productsbd',productsRouteBD)
 
+// Ruta del chat
 server.use ('/', router);
 
