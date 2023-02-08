@@ -1,5 +1,5 @@
-const ProductManager = require('../productmanager');
-const pm = new ProductManager ('./src/products.json');
+const pm = require('../productmanager');
+
 const { emitdeleteproduct } = require('../utils/socket.io');
 const { emitaddproduct } = require('../utils/socket.io');
 
