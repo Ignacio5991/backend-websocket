@@ -4,7 +4,7 @@ const fs = require ("fs");
 
 const readFile = async(path)=>{
     const getProducts = await fs.promises.readFile(path,"utf-8");
-    const productsJSON = JSON.parse(getProducts);
+    const productsJSON = JSON.parse(getProducts );
     return productsJSON;
 }
 
