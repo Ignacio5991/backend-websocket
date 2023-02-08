@@ -1,10 +1,10 @@
 // import fs, { readFile } from 'fs';
 const fs = require ("fs");
-const { parse } = require("path");
+// const { parse } = require("path");
 
 const readFile = async(path)=>{
-    const productsDocument = await fs.promises.readFile(path);
-    const productsJSON = JSON.parse(productsDocument);
+    const getProducts = await fs.promises.readFile(path,"utf-8");
+    const productsJSON = JSON.parse(getProducts);
     return productsJSON;
 }
 

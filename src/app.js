@@ -7,7 +7,8 @@ const cartsroute = require ('./routes/cart.route')
 const {connectionSocket} = require ('./utils/socket.io');
 const productsrouter = require('./routes/products.route');
 const  {default:mongoose}  = require('mongoose');
-const router = require('./routes/viewsroute');
+const router = require('./routes/chatroute');
+const routerView = require('./routes/viewroute');
 const server = express();
 mongoose.set("strictQuery",false)
 
@@ -37,16 +38,27 @@ io.on('connection', (socket) => {
 //Conexion a mongoose data base
 
 mongoose.connect(
-    'mongodb+srv://Ignacio:4wmZz9ezRRKqgu85@admin.mtszt8r.mongodb.net/test',
-    (error)=>{
-        if (error){
-            console.log('Error de conexion', error);
-            process.exit();
-        }else{
-            console.log('Conectado a mongo')
+        'mongodb+srv://Ignacio:4wmZz9ezRRKqgu85@admin.mtszt8r.mongodb.net/?retryWrites=true&w=majority',
+        (error)=>{
+            if (error){
+                console.log('Error de conexion', error);
+                process.exit();
+            }else{
+                console.log('Conectado a mongo')
+            }
         }
-    }
-)
+    )
+// mongoose.connect(
+//     'mongodb+srv://Ignacio:4wmZz9ezRRKqgu85@admin.mtszt8r.mongodb.net/test',
+//     (error)=>{
+//         if (error){
+//             console.log('Error de conexion', error);
+//             process.exit();
+//         }else{
+//             console.log('Conectado a mongo')
+//         }
+//     }
+// )
 
 //Conexion a mongoose chat database
 
@@ -84,8 +96,12 @@ server.use('/api/products/',productsroute);
 server.use('/api/carts/',cartsroute);
 
 // Rutas del views
-server.use('/api/productsbd',productsRouteBD)
+server.use('/api/productsbd',productsRouteBD);
+server.use('/',routerView);
+
+
 
 // Ruta del chat
 server.use ('/', router);
 
+// connectionSocket (httpServer);

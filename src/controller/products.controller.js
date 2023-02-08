@@ -1,15 +1,15 @@
 const { response } = require("express");
 const  ProductManager = require ("../productmanager");
-const pm = new ProductManager('./src/products.json');
+const pm = new ProductManager("../src/products.json");
 
 
 const getProducts = async (req,res)=>{
-    const {limite:limite = ""} = req.query
-    if (!limite){
+    const {limite:limits = ""} = req.query
+    if (!limits){
         let productos = await pm.getProducts();
         res.json(productos)
     }else{
-        let productos = await pm.getProducts(limite);
+        let productos = await pm.getProducts(limits);
         res.json(productos)
     }
 };

@@ -1,4 +1,5 @@
-const ProductManager = require('../ProductManager');
+const ProductManagerBd = require('../dao/productmanager.bd');
+const product = new ProductManagerBd ('./src/products.json')
 const productsModel = require('../dao/models/products.model');
 
 const getProduct = async (req, res) => {
