@@ -1,8 +1,7 @@
 const cartManager = require('../cartmanager');
-const ProductManager = require('../productmanager');
+const pm = require('../productmanager');
 
 const cart = new cartManager(__dirname + '/../cart.json');
-const pm = new ProductManager('./src/products.json');
 
 const createcart = async (req, res) => {
   const resp = await cart.CreateFile();
@@ -21,18 +20,17 @@ const getchango = async (req, res) => {
 const addProductCart = async (req, res) => {
   const { cid, pid } = req.params;
   const products = await pm.getProductsById(pid);
-  
+
   if (products) {
-      const resp = await cart.addProductCart(cid, products.id);
-      res.json  ({ msg:"Producto Agregado"})  
-  }else {
-      res.json  ({ msg:"Producto no Encontrado"})  
+    const resp = await cart.addProductCart(cid, products.id);
+    res.json({ msg: 'Producto Agregado' });
+  } else {
+    res.json({ msg: 'Producto no Encontrado' });
   }
-  
 };
 
 module.exports = {
   createcart,
   getchango,
-  addProductCart
+  addProductCart,
 };
