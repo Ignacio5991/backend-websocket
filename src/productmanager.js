@@ -1,11 +1,11 @@
 // import fs, { readFile } from 'fs';
 const fs = require ("fs");
-// const { parse } = require("path");
+const { parse } = require("path");
 
 const readFile = async(path)=>{
-    const getProducts = await fs.promises.readFile(path,"utf-8");
-    const productsJSON = JSON.parse(getProducts );
-    return productsJSON;
+    const GetProducts = await fs.promises.readFile(path,"utf-8");
+    const resulta = JSON.parse(GetProducts);
+    return resulta;
 }
 
 const writeFile = async(path,product)=>{
@@ -13,7 +13,6 @@ const writeFile = async(path,product)=>{
 }
 class ProductManager {
     constructor(path) {
-        this.id = 0;
         this.path = path;
         this.product = [];
   }
@@ -54,11 +53,10 @@ class ProductManager {
   
 
   async getProducts(limite) {
-    if (limite == undefined){
-        const data = await readFile(this.path)
-        return data
+    const products = await readFile (this.path);
+    if ( ! limite){
+        return products
     }else{
-        const {products} = await readFile (this.path);
         const filtro = products.slice(0,limite);
         return filtro;
     }

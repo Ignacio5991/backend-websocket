@@ -4,8 +4,8 @@ const { emitdeleteproduct } = require('../utils/socket.io');
 const { emitaddproduct } = require('../utils/socket.io');
 
 const view = async (req, res) => {
-  let { products } = await pm.getProducts();
-  res.render('home', { products });
+  let  products  = await pm.getProducts();
+  res.render('home',  products );
 };
 
 const realtime = async (req, res) => {
